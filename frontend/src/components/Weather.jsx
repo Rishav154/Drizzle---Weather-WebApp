@@ -309,27 +309,27 @@ function Weather() {
             <div className="other-info grid grid-cols-3 md:flex items-start md:items-end justify-between mt-6 text-center text-gray-300 font-roboto text-base md:text-sm gap-y-8 md:gap-0 px-2 md:px-0">
                 <div className="flex flex-col items-center space-y-3 md:space-y-2">
                     <p>Humidity</p>
-                    <img src={humidity} alt="humidity" className="w-12 md:w-auto my-2" />
+                    <img src={humidity} alt="humidity" className="w-12 md:w-10 my-2" />
                     <p>{weatherData ? `${weatherData.main.humidity}%` : '--'}</p>
                 </div>
                 <div className="flex flex-col items-center space-y-3 md:space-y-2">
                     <p>Max/Min</p>
-                    <img src={max_min} alt="Maximum and minimum temperature" className="w-12 md:w-auto my-2" />
+                    <img src={max_min} alt="Maximum and minimum temperature" className="w-12 md:w-10 my-2" />
                     <p>{weatherData ? `${Math.round(weatherData.main.temp_max)}/${Math.round(weatherData.main.temp_min)}°C` : '--'}</p>
                 </div>
                 <div className="flex flex-col items-center space-y-3 md:space-y-2">
                     <p>Wind</p>
-                    <img src={wind} alt="Wind" className="w-12 md:w-auto my-2" />
+                    <img src={wind} alt="Wind" className="w-12 md:w-10 my-2" />
                     <p>{weatherData ? `${weatherData.wind.speed} m/s` : '--'}</p>
                 </div>
                 <div className="flex flex-col items-center space-y-3 md:space-y-2">
                     <p>Pressure</p>
-                    <img src={pressure} alt="Pressure" className="w-12 md:w-auto my-2" />
+                    <img src={pressure} alt="Pressure" className="w-12 md:w-10 my-2" />
                     <p>{weatherData ? `${weatherData.main.pressure} hPa` : '--'}</p>
                 </div>
                 <div className="flex flex-col items-center space-y-3 md:space-y-2">
                     <p className="whitespace-nowrap">Feels Like</p>
-                    <img src={feels_like} alt="FeelsLike" className="w-12 md:w-auto my-2" />
+                    <img src={feels_like} alt="FeelsLike" className="w-12 md:w-10 my-2" />
                     <p>{weatherData ? `${Math.round(weatherData.main.feels_like)}°C` : '--'}</p>
                 </div>
             </div>
