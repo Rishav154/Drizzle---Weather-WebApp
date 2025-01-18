@@ -235,14 +235,13 @@ function Weather() {
     }
 
     return (
-        <div className="main-container w-full md:w-[80vh] h-auto min-h-screen md:h-[80vh] bg-zinc-800 bg-opacity-50 backdrop-blur-sm max-w-4xl md:rounded-3xl md:min-h-[70vh] p-4 md:p-10 shadow-2xl mx-auto">
-            <div className="weather-summary flex flex-col md:flex-row justify-between items-center md:items-end font-roboto mb-7 gap-4 md:gap-0">
+        <div className="main-container w-full md:w-[80vh] h-auto min-h-screen md:h-[80vh] bg-zinc-800 bg-opacity-50 backdrop-blur-sm max-w-4xl md:rounded-3xl md:min-h-[70vh] p-6 md:p-10 shadow-2xl mx-auto">
+            <div className="weather-summary flex flex-col md:flex-row justify-between items-center md:items-end font-roboto mb-10 md:mb-7 gap-4 md:gap-0">
                 <div className="temp-location relative text-center md:text-left">
-                    <div className="temp text-gray-300 text-4xl md:text-5xl">
+                    <div className="temp text-gray-300 text-6xl md:text-5xl">
                         <h1>{weatherData ? `${Math.round(weatherData.main.temp)}°C` : '21°C'}</h1>
                     </div>
-                    <div
-                        className="location text-base md:text-lg text-zinc-700 cursor-pointer relative"
+                    <div className="location text-xl md:text-lg text-zinc-700 cursor-pointer relative"
                         onMouseEnter={() => setShowSearch(true)}
                         onMouseLeave={() => setShowSearch(false)}
                     >
@@ -271,15 +270,15 @@ function Weather() {
                         )}
                     </div>
                 </div>
-                <div className="time-date">
-                    <div className="time text-4xl md:text-5xl text-gray-300 text-center">
+                <div className="time-date mb-4 md:mb-0">
+                    <div className="time text-5xl md:text-5xl text-gray-300 text-center">
                         <p>{formattedTime}</p>
                     </div>
-                    <div className="date text-base md:text-lg text-zinc-700">
+                    <div className="date text-lg md:text-lg text-zinc-700">
                         <p>{formattedDate}</p>
                     </div>
                 </div>
-                <div className="weather-icon max-h-16 md:max-h-20 max-w-16 md:max-w-20 text-center">
+                <div className="weather-icon max-h-20 md:max-h-20 max-w-20 md:max-w-20 text-center">
                     {weatherData && (
                         <>
                             <img
@@ -288,48 +287,49 @@ function Weather() {
                                     new Date().getHours()
                                 )}
                                 alt={weatherData.weather[0].description}
+                                className="w-20 md:w-auto mx-auto"
                             />
-                            <p className="text-sm text-zinc-700">{weatherData.weather[0].main}</p>
+                            <p className="text-base md:text-sm text-gray-300 mt-2">{weatherData.weather[0].main}</p>
                         </>
                     )}
                 </div>
             </div>
-            <hr className="border-t-2 md:border-t-4 opacity-50 rounded-full" />
-            <div className="detailed-weather flex flex-wrap md:flex-nowrap items-center md:items-end justify-center md:justify-between gap-6 md:gap-12 text-center text-gray-300 font-roboto mt-5 mb-16 md:mb-32">
+            <hr className="border-t-2 md:border-t-4 opacity-50 rounded-full md:mb-5" />
+            <div className="detailed-weather flex flex-wrap md:flex-nowrap items-center md:items-end justify-center md:justify-between gap-8 md:gap-12 text-center text-gray-300 font-roboto mt-5 mb-28 md:mb-32">
                 {getTimelineData().map((timeSlot, index) => (
-                    <div key={index} className="time-slot max-h-16 md:max-h-20 max-w-16 md:max-w-20 w-[40%] md:w-auto">
-                        <p className="text-sm md:text-base">{timeSlot.weather}</p>
-                        <img src={timeSlot.icon} alt="weather-icon" className="my-2 md:my-4 w-12 md:w-auto mx-auto" />
-                        <p className="text-sm">{timeSlot.time}</p>
-                        <p className="text-xs md:text-sm mt-1">{timeSlot.temp}°C</p>
+                    <div key={index} className="time-slot max-h-20 md:max-h-20 max-w-20 md:max-w-20 w-[45%] md:w-auto">
+                        <p className="text-lg md:text-base mb-2">{timeSlot.weather}</p>
+                        <img src={timeSlot.icon} alt="weather-icon" className="my-3 md:my-4 w-16 md:w-auto mx-auto" />
+                        <p className="text-base md:text-sm">{timeSlot.time}</p>
+                        <p className="text-base md:text-sm mt-2">{timeSlot.temp}°C</p>
                     </div>
                 ))}
             </div>
-            <hr className="border-t-2 md:border-t-4 opacity-50 rounded-full" />
-            <div className="other-info grid grid-cols-3 md:flex items-center md:items-end justify-between mt-6 text-center text-gray-300 font-roboto text-xs md:text-sm gap-4 md:gap-0">
-                <div className="max-h-10 md:max-h-12 max-w-10 md:max-w-12 mx-auto">
+            <hr className="border-t-2 md:border-t-4 opacity-50 rounded-full mb-8 md:mb-6" />
+            <div className="other-info grid grid-cols-3 md:flex items-start md:items-end justify-between mt-6 text-center text-gray-300 font-roboto text-base md:text-sm gap-y-8 md:gap-0 px-2 md:px-0">
+                <div className="flex flex-col items-center space-y-3 md:space-y-2">
                     <p>Humidity</p>
-                    <img src={humidity} alt="humidity" className="my-2 md:my-4 w-8 md:w-auto" />
+                    <img src={humidity} alt="humidity" className="w-12 md:w-auto my-2" />
                     <p>{weatherData ? `${weatherData.main.humidity}%` : '--'}</p>
                 </div>
-                <div className="max-h-10 md:max-h-12 max-w-10 md:max-w-12 mx-auto">
+                <div className="flex flex-col items-center space-y-3 md:space-y-2">
                     <p>Max/Min</p>
-                    <img src={max_min} alt="Maximum and minimum temperature" className="my-2 md:my-4 w-8 md:w-auto" />
+                    <img src={max_min} alt="Maximum and minimum temperature" className="w-12 md:w-auto my-2" />
                     <p>{weatherData ? `${Math.round(weatherData.main.temp_max)}/${Math.round(weatherData.main.temp_min)}°C` : '--'}</p>
                 </div>
-                <div className="max-h-10 md:max-h-12 max-w-10 md:max-w-12 mx-auto">
+                <div className="flex flex-col items-center space-y-3 md:space-y-2">
                     <p>Wind</p>
-                    <img src={wind} alt="Wind" className="my-2 md:my-4 w-8 md:w-auto" />
+                    <img src={wind} alt="Wind" className="w-12 md:w-auto my-2" />
                     <p>{weatherData ? `${weatherData.wind.speed} m/s` : '--'}</p>
                 </div>
-                <div className="max-h-10 md:max-h-12 max-w-10 md:max-w-12 mx-auto">
+                <div className="flex flex-col items-center space-y-3 md:space-y-2">
                     <p>Pressure</p>
-                    <img src={pressure} alt="Pressure" className="my-2 md:my-4 w-8 md:w-auto" />
+                    <img src={pressure} alt="Pressure" className="w-12 md:w-auto my-2" />
                     <p>{weatherData ? `${weatherData.main.pressure} hPa` : '--'}</p>
                 </div>
-                <div className="max-h-10 md:max-h-12 max-w-10 md:max-w-12 mx-auto">
+                <div className="flex flex-col items-center space-y-3 md:space-y-2">
                     <p className="whitespace-nowrap">Feels Like</p>
-                    <img src={feels_like} alt="FeelsLike" className="my-2 md:my-4 w-8 md:w-auto" />
+                    <img src={feels_like} alt="FeelsLike" className="w-12 md:w-auto my-2" />
                     <p>{weatherData ? `${Math.round(weatherData.main.feels_like)}°C` : '--'}</p>
                 </div>
             </div>
