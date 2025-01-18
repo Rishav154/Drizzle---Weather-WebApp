@@ -295,7 +295,7 @@ function Weather() {
                 </div>
             </div>
             <hr className="border-t-2 md:border-t-4 opacity-50 rounded-full md:mb-5" />
-            <div className="detailed-weather flex items-center md:items-end justify-between gap-4 md:gap-12 text-center text-gray-300 font-roboto mt-5 mb-10 md:mb-32">
+            <div className="detailed-weather flex items-center md:items-end justify-between gap-4 md:gap-12 text-center text-gray-300 font-roboto mt-5 mb-10 md:mb-8">
                 {getTimelineData().map((timeSlot, index) => (
                     <div key={index} className="time-slot w-1/4 md:w-auto">
                         <p className="text-lg md:text-base mb-2">{timeSlot.weather}</p>
