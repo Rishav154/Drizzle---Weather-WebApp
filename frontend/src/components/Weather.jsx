@@ -295,11 +295,11 @@ function Weather() {
                 </div>
             </div>
             <hr className="border-t-2 md:border-t-4 opacity-50 rounded-full md:mb-5" />
-            <div className="detailed-weather flex flex-wrap md:flex-nowrap items-center md:items-end justify-center md:justify-between gap-8 md:gap-12 text-center text-gray-300 font-roboto mt-5 mb-28 md:mb-32">
+            <div className="detailed-weather flex items-center md:items-end justify-between gap-4 md:gap-12 text-center text-gray-300 font-roboto mt-5 mb-28 md:mb-32">
                 {getTimelineData().map((timeSlot, index) => (
-                    <div key={index} className="time-slot max-h-20 md:max-h-20 max-w-20 md:max-w-20 w-[45%] md:w-auto">
+                    <div key={index} className="time-slot w-1/4 md:w-auto">
                         <p className="text-lg md:text-base mb-2">{timeSlot.weather}</p>
-                        <img src={timeSlot.icon} alt="weather-icon" className="my-3 md:my-4 w-16 md:w-auto mx-auto" />
+                        <img src={timeSlot.icon} alt="weather-icon" className="my-3 md:my-4 w-12 md:w-16 mx-auto" />
                         <p className="text-base md:text-sm">{timeSlot.time}</p>
                         <p className="text-base md:text-sm mt-2">{timeSlot.temp}°C</p>
                     </div>
