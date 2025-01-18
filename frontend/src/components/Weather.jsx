@@ -235,7 +235,7 @@ function Weather() {
     }
 
     return (
-        <div className="main-container w-[100%] md:w-[80vh] h-auto min-h-screen md:h-[80vh] bg-zinc-800 bg-opacity-50 backdrop-blur-sm max-w-4xl md:rounded-3xl md:min-h-[70vh] p-4 md:p-10 shadow-2xl mx-auto">
+        <div className="main-container w-full md:w-[80vh] h-auto min-h-screen md:h-[80vh] bg-zinc-800 bg-opacity-50 backdrop-blur-sm max-w-4xl md:rounded-3xl md:min-h-[70vh] p-4 md:p-10 shadow-2xl mx-auto">
             <div className="weather-summary flex flex-col md:flex-row justify-between items-center md:items-end font-roboto mb-7 gap-4 md:gap-0">
                 <div className="temp-location relative text-center md:text-left">
                     <div className="temp text-gray-300 text-4xl md:text-5xl">
@@ -247,7 +247,6 @@ function Weather() {
                         onMouseLeave={() => setShowSearch(false)}
                     >
                         <h1>{weatherData ? weatherData.name : 'Loading...'}</h1>
-
                         {showSearch && (
                             <div className="absolute left-0 md:left-auto right-0 md:right-auto top-full mt-2 bg-zinc-400 backdrop-blur-lg bg-opacity-60 rounded-lg p-2 z-10 w-[200px] md:min-w-[300px]">
                                 <div className="flex gap-2">
@@ -272,7 +271,6 @@ function Weather() {
                         )}
                     </div>
                 </div>
-
                 <div className="time-date">
                     <div className="time text-4xl md:text-5xl text-gray-300 text-center">
                         <p>{formattedTime}</p>
@@ -281,9 +279,8 @@ function Weather() {
                         <p>{formattedDate}</p>
                     </div>
                 </div>
-
                 <div className="weather-icon max-h-16 md:max-h-20 max-w-16 md:max-w-20 text-center">
-                {weatherData && (
+                    {weatherData && (
                         <>
                             <img
                                 src={getWeatherIcon(
@@ -297,9 +294,7 @@ function Weather() {
                     )}
                 </div>
             </div>
-
             <hr className="border-t-2 md:border-t-4 opacity-50 rounded-full" />
-
             <div className="detailed-weather flex flex-wrap md:flex-nowrap items-center md:items-end justify-center md:justify-between gap-6 md:gap-12 text-center text-gray-300 font-roboto mt-5 mb-16 md:mb-32">
                 {getTimelineData().map((timeSlot, index) => (
                     <div key={index} className="time-slot max-h-16 md:max-h-20 max-w-16 md:max-w-20 w-[40%] md:w-auto">
@@ -310,9 +305,7 @@ function Weather() {
                     </div>
                 ))}
             </div>
-
             <hr className="border-t-2 md:border-t-4 opacity-50 rounded-full" />
-
             <div className="other-info grid grid-cols-3 md:flex items-center md:items-end justify-between mt-6 text-center text-gray-300 font-roboto text-xs md:text-sm gap-4 md:gap-0">
                 <div className="max-h-10 md:max-h-12 max-w-10 md:max-w-12 mx-auto">
                     <p>Humidity</p>
